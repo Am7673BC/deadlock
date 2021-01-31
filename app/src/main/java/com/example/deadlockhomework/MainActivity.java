@@ -15,24 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(truck.getLenght()>suv.getLenght()){
-            suvMoves.start();
-            try {
-                suvMoves.join(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            truckMoves.start();
-        }else{
-            truckMoves.start();
-            try {
-                truckMoves.join(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            suvMoves.start();
-        }
+        truckMoves.start();
+        suvMoves.start();
     }
 
     Thread truckMoves = new Thread(new Runnable() {
